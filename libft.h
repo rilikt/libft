@@ -6,11 +6,12 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 14:19:31 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/11 14:01:31 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:59:18 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #ifndef LIBFT_H
 #define LIBFT_H
@@ -37,5 +38,10 @@ extern char	*ft_strlowcase(char *str);
 extern int	ft_strncmp(char *s1, char *s2, unsigned int n);
 extern char	*ft_strnstr(const char *str, const char *find, size_t count);
 extern char	*ft_strupcase(char *str);
+extern char *ft_substr(char const *s, unsigned int start, size_t len);
+extern char *ft_strtrim(char const *s1, char const *set);
+extern char	**ft_split(char const *s, char c);
+extern char *ft_itoa(int n);
+
 
 #endif

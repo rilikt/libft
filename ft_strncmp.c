@@ -6,12 +6,18 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 13:02:16 by timschmi          #+#    #+#             */
-/*   Updated: 2024/01/30 16:57:41 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:42:53 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
-// #include <stdio.h>
+
+// Description
+
+// The strncmp() function compares string1 and string2 to the maximum of count.
+
+// Return Value
+
+// The strncmp() function returns a value indicating the relationship between the strings, as follows:
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
@@ -29,6 +35,9 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	else
 		return (s1[i] - s2[i]);
 }
+
+// #include <unistd.h>
+// #include <stdio.h>
 
 // int main(void)
 // {

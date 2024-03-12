@@ -6,23 +6,12 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 16:19:07 by timschmi          #+#    #+#             */
-/*   Updated: 2024/02/07 11:37:16 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:56:53 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-int	ft_strlen(char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-	{
-		len++;
-	}
-	return (len);
-}
+#include "libft.h"
 
 char	*ft_strdup(char *src)
 {
