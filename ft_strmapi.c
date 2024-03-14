@@ -1,46 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 14:53:06 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 13:57:15 by timschmi         ###   ########.fr       */
+/*   Created: 2024/03/13 12:49:31 by timschmi          #+#    #+#             */
+/*   Updated: 2024/03/14 12:38:10 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	ch;
-	char	*st;
+	int		len;
+	char	*str;
 	int		i;
 
 	i = 0;
-	st = (char *)str;
-	ch = (char)c;
-	while (str[i])
+	len = ft_strlen(s);
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	while (s[i])
 	{
-		if (ch == st[i])
-			break ;
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	if (ch == st[i])
-		return (st + i);
-	else
-		return (0);
+	str[i] = '\0';
+	return (str);
 }
 
 // int main(void)
 // {
-//   char buffer1[40] = "computer program";
-//   char * ptr;
-//   int    ch = 'p';
+// 	char *str = "Apply x function to this string.";
+// 	char *str2;
 
-//   ptr = ft_strchr( buffer1, ch );
-//   printf( "The first occurrence of %c in '%s' is '%s'\n",
-//             ch, buffer1, ptr );
-
+// 	str2 = ft_strmapi(str, ft_tolower);
+// 	printf("%s\n", str2);
 // }

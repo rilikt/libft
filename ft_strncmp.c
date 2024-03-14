@@ -6,10 +6,11 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 13:02:16 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/12 13:42:53 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:21:02 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 // Description
 
@@ -17,11 +18,12 @@
 
 // Return Value
 
-// The strncmp() function returns a value indicating the relationship between the strings, as follows:
+// The strncmp() function returns a value indicating the 
+// relationship between the strings, as follows:
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	i;
+	unsigned long int	i;
 
 	i = 0;
 	if (n == 0)
@@ -33,7 +35,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	if (s1[i] == s2[i])
 		return (0);
 	else
-		return (s1[i] - s2[i]);
+		return ((unsigned char) s1[i] - s2[i]);
 }
 
 // #include <unistd.h>

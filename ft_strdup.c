@@ -6,14 +6,18 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 16:19:07 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/12 13:56:53 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:31:07 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+// strdup reserves storage space for a copy of string by calling malloc.
+// The string argument to this function is expected to contain a
+// null character (\0) marking the end of the string.
+// Remember to free the storage reserved with the call to strdup.
+
+char	*ft_strdup(const char *src)
 {
 	int		len;
 	char	*str;
@@ -21,7 +25,9 @@ char	*ft_strdup(char *src)
 
 	i = 0;
 	len = ft_strlen(src);
-	str = (char *)malloc(len * 1);
+	str = (char *)malloc((len +1) * 1);
+	if (str == NULL)
+		return (NULL);
 	while (src[i])
 	{
 		str[i] = src[i];

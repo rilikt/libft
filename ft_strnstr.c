@@ -6,18 +6,17 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:17:13 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/07 17:01:06 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:38:20 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char *str, const char *find, size_t count)
 {
-	int	len;
-	int	i;
-	int	j;
+	int					len;
+	unsigned long int	i;
+	int					j;
 
 	len = 0;
 	i = 0;
@@ -39,18 +38,16 @@ char	*ft_strnstr(const char *str, const char *find, size_t count)
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
-#include <stdio.h>
+// int	main(void)
+// {
+// 	const char *largestring = "Foo Bar Baz";
+// 	const char *smallstring = "Bar";
+// 	char *ptr;
 
-int	main(void)
-{
-	const char *largestring = "Foo Bar Baz";
-	const char *smallstring = "Bar";
-	char *ptr;
-
-	ptr = ft_strnstr(largestring, smallstring, 10);
-	printf("%s\n", ptr);
-	return (0);
-}
+// 	ptr = ft_strnstr(largestring, smallstring, 10);
+// 	printf("%s\n", ptr);
+// 	return (0);
+// }

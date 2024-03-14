@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 14:06:06 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 17:35:59 by timschmi         ###   ########.fr       */
+/*   Created: 2024/03/13 14:44:47 by timschmi          #+#    #+#             */
+/*   Updated: 2024/03/14 12:36:19 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char				*sub;
-	unsigned long int	i;
+	int	i;
 
 	i = 0;
-	sub = (char *)malloc((len + 1) * sizeof(char));
-	if (sub == NULL)
-		return (NULL);
-	while (s[start] && len > i)
+	while (s[i])
 	{
-		sub[i] = s[start];
-		start++;
+		write(fd, &s[i], sizeof(char));
 		i++;
 	}
-	sub[i] = '\0';
-	return (sub);
 }
-
-// int main(void)
-// {
-// 	char str[] = "split this string";
-// 	char *sub;
-
-// 	sub = ft_substr(str, 1, 10);
-// 	printf("%s\n", sub);
-// }

@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 14:06:06 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 17:35:59 by timschmi         ###   ########.fr       */
+/*   Created: 2024/03/13 14:50:46 by timschmi          #+#    #+#             */
+/*   Updated: 2024/03/14 14:03:46 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char				*sub;
-	unsigned long int	i;
+	long int	i;
 
-	i = 0;
-	sub = (char *)malloc((len + 1) * sizeof(char));
-	if (sub == NULL)
-		return (NULL);
-	while (s[start] && len > i)
+	i = n;
+	if (i < 0)
 	{
-		sub[i] = s[start];
-		start++;
-		i++;
+		ft_putchar_fd('-', fd);
+		i = i * (-1);
 	}
-	sub[i] = '\0';
-	return (sub);
+	if (i < 10)
+	{
+		ft_putchar_fd((i + '0'), fd);
+	}
+	else
+	{
+		ft_putnbr_fd((i / 10), fd);
+		ft_putchar_fd((i % 10 + '0'), fd);
+	}
 }
-
-// int main(void)
-// {
-// 	char str[] = "split this string";
-// 	char *sub;
-
-// 	sub = ft_substr(str, 1, 10);
-// 	printf("%s\n", sub);
-// }

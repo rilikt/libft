@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 14:53:06 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 13:57:15 by timschmi         ###   ########.fr       */
+/*   Created: 2024/03/13 13:21:09 by timschmi          #+#    #+#             */
+/*   Updated: 2024/03/14 12:37:20 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	ch;
-	char	*st;
-	int		i;
+	int	i;
 
 	i = 0;
-	st = (char *)str;
-	ch = (char)c;
-	while (str[i])
+	while (s[i])
 	{
-		if (ch == st[i])
-			break ;
+		f(i, &s[i]);
 		i++;
 	}
-	if (ch == st[i])
-		return (st + i);
-	else
-		return (0);
 }
+
+// void print_index_and_char(unsigned int index, char *c) {
+//     printf("Index: %u, Character: %c\n", index, *c);
+// }
 
 // int main(void)
 // {
-//   char buffer1[40] = "computer program";
-//   char * ptr;
-//   int    ch = 'p';
+// 	char *str = "Apply x function to this string.";
+// 	char *str2;
 
-//   ptr = ft_strchr( buffer1, ch );
-//   printf( "The first occurrence of %c in '%s' is '%s'\n",
-//             ch, buffer1, ptr );
+// 	ft_striteri(str, print_index_and_char);
+// 	printf("%s\n", str2);
 
 // }

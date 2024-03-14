@@ -6,12 +6,11 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:39:52 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/11 14:46:24 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:34:10 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 void	*ft_calloc(size_t num, size_t size)
 {
@@ -24,33 +23,31 @@ void	*ft_calloc(size_t num, size_t size)
 	return (ptr);
 }
 
-#include <stdio.h>
+// int	main(void)
+// {
+// 	int *arr;
+// 	size_t num_elements = 5;
+// 	size_t element_size = sizeof(int);
 
-int	main(void)
-{
-	int *arr;
-	size_t num_elements = 5;
-	size_t element_size = sizeof(int);
+// 	// Use my_calloc to allocate memory for an array of 5 integers
+// 	arr = (int *)ft_calloc(num_elements, element_size);
 
-	// Use my_calloc to allocate memory for an array of 5 integers
-	arr = (int *)ft_calloc(num_elements, element_size);
+// 	if (arr == NULL)
+// 	{
+// 		printf("Memory allocation failed!\n");
+// 		return (1);
+// 	}
 
-	if (arr == NULL)
-	{
-		printf("Memory allocation failed!\n");
-		return (1);
-	}
+// 	// Print the initialized array elements
+// 	printf("Initialized array elements:\n");
+// 	for (size_t i = 0; i < num_elements; i++)
+// 	{
+// 		printf("%d ", arr[i]); // Should print zeros
+// 	}
+// 	printf("\n");
 
-	// Print the initialized array elements
-	printf("Initialized array elements:\n");
-	for (size_t i = 0; i < num_elements; i++)
-	{
-		printf("%d ", arr[i]); // Should print zeros
-	}
-	printf("\n");
+// 	// Free the allocated memory
+// 	free(arr);
 
-	// Free the allocated memory
-	free(arr);
-
-	return (0);
-}
+// 	return (0);
+// }
