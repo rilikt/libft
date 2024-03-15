@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:25:56 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/15 14:49:34 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:17:22 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		front;
 	int		trim_len;
 
+	if (ft_strlen(set) > ft_strlen(s1))
+	{
+		trim = (char *)malloc(1 * sizeof(char));
+		trim[0] = '\0';
+		return (trim);
+	}
 	front = set_front(s1, set);
 	trim_len = ft_trim_len(s1, set);
 	trim = ft_substr(s1, front, trim_len);
@@ -72,9 +78,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 // int main(void)
 // {
-// 	char s1[] = "obobTrim the o's from thisooob";
-// 	char set[]= "ob";
+// 	// char s1[] = "obobTrim the o's from thisooob";
+// 	// char set[]= "ob";
 
-// 	char *trim = ft_strtrim(s1, set);
+// 	char *trim = ft_strtrim("", "cdef");
 // 	printf("%s\n", trim);
 // }

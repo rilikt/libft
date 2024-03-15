@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 14:06:06 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/15 13:57:34 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:47:48 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub = (char *)malloc((size + 1) * sizeof(char));
 	if (sub == NULL)
 		return (NULL);
+	sub[size] = '\0';
+	if (size == 0)
+		return (sub);
 	while (s[start] && len > i && size != 0)
 	{
 		sub[i] = s[start];
 		start++;
 		i++;
 	}
-	sub[size] = '\0';
 	return (sub);
 }
 

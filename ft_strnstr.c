@@ -6,34 +6,43 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:17:13 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/15 14:30:12 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:23:03 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static void	ft_seg(const char *str)
+{
+	char	*ok;
+
+	ok = (char *)str;
+	*ok = 's';
+}
+
 char	*ft_strnstr(const char *str, const char *find, size_t count)
 {
-	int					len;
+	unsigned long int	len;
 	unsigned long int	i;
-	int					j;
+	unsigned long int	j;
 
-	if (*find == '\0' || find == NULL)
-		return ((char *)str);
 	i = 0;
 	j = 0;
 	len = ft_strlen(find);
+	if (str == NULL)
+		ft_seg(str);
+	if (len == 0)
+		return ((char *)str);
+	if (count < len)
+		return (NULL);
 	while (str[i] && count > i)
 	{
 		j = 0;
-		while (str[i] && str[i] == find[j] && count > i)
-		{
-			i++;
+		while (find[j] && str[i + j] == find[j] && count > i + j)
 			j++;
-		}
 		if (len == j)
 		{
-			return ((char *)str + (i - j));
+			return ((char *)str + i);
 		}
 		i++;
 	}

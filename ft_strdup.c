@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 16:19:07 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 17:31:07 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:48:15 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ char	*ft_strdup(const char *src)
 	str[i] = '\0';
 	return (str);
 }
-
-// #include <stdio.h>
 
 // int	main(void)
 // {
