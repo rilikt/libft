@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:26:16 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 12:40:25 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:53:52 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *buf, int c, size_t count)
 {
-	unsigned char			*buffer;
+	unsigned char		*buffer;
 	unsigned char		ch;
 	unsigned long int	i;
 

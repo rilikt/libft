@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:39:52 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 12:34:10 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:12:36 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_calloc(size_t num, size_t size)
 {
 	void	*ptr;
 
-	if (num == 0 || size == 0)
-		return (NULL);
 	ptr = malloc(num * size);
 	if (ptr == NULL)
 		return (NULL);

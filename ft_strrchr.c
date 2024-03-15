@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:13:06 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 12:39:04 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:45:47 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ char	*ft_strrchr(const char *str, int c)
 {
 	char	ch;
 	char	*st;
-	int		i;
+	int		len;
 
 	st = (char *)str;
 	ch = (char)c;
-	i = ft_strlen(str);
-	while (i >= 0)
+	len = ft_strlen(str);
+	while (len >= 0)
 	{
-		if (ch == st[i])
-			return (st + i);
-		i--;
-	}	
-	return (NULL);
+		if (ch == st[len])
+			return (st + len);
+		len--;
+	}
+	return (0);
 }
 
 // int main(void)

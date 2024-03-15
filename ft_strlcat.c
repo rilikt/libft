@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:16:41 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 16:59:28 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:41:45 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,22 @@ size_t	ft_strlcat(char *dest, const char *source, size_t size)
 	unsigned long int	dest_len;
 	unsigned long int	source_len;
 	unsigned long int	i;
-	unsigned long int	re_val;
+	unsigned long int	n;
 
-	dest_len = 0;
-	source_len = 0;
-	i = 0;
 	dest_len = ft_strlen(dest);
 	source_len = ft_strlen(source);
+	i = 0;
 	if (dest_len < size)
-		re_val = dest_len + source_len;
+		n = dest_len + source_len;
 	else
-		re_val = source_len + size;
-	while (source[i] && (dest_len + i) < size - 1)
+		n = source_len + size;
+	while (source[i] && (dest_len + i) < size - 1 && size != 0)
 	{
 		dest[dest_len + i] = source[i];
 		i++;
 	}
 	dest[dest_len + i] = '\0';
-	return (re_val);
+	return (n);
 }
 
 // if (size == 0)

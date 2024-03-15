@@ -39,7 +39,7 @@ extern size_t	ft_strlcat(char *dest, const char *source, size_t size);
 extern size_t	ft_strlcpy(char *dest, char *src, size_t size);
 extern int		ft_tolower(int C);
 extern int		ft_strncmp(const char *s1, const char *s2, size_t n);
-extern char	*ft_strnstr(const char *haystack, const char *needle, size_t count);
+extern char		*ft_strnstr(const char *str, const char *find, size_t count);
 extern char		*ft_substr(char const *s, unsigned int start, size_t len);
 extern char		*ft_strtrim(char const *s1, char const *set);
 extern char		**ft_split(char const *s, char c);

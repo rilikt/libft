@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 13:02:16 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 17:21:02 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:19:23 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@
 
 // Return Value
 
-// The strncmp() function returns a value indicating the 
+// The strncmp() function returns a value indicating the
 // relationship between the strings, as follows:
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char *str1;
-	unsigned char *str2;
 	unsigned long int	i;
+	unsigned char		*str1;
+	unsigned char		*str2;
 
-	str1 = (unsigned char *) s1;
-	str2 = (unsigned char *) s2;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (i < n && str1[i] && str1[i] == str2[i])
+	while (i < n - 1 && str1[i] && str1[i] == str2[i])
 	{
 		i++;
 	}

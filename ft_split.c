@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 14:55:56 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/14 12:42:05 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:02:03 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ static void	pop_arr(char **arr, char const *s, char c, int str_count)
 
 	j = 0;
 	i = 0;
-	while (*s == c)
-		s++;
 	while (str_count > i)
 	{
+		while (s[j] == c)
+			j++;
 		len = word_len(s + j, c);
 		arr[i] = ft_substr(s, j, len);
 		j += len + 1;
