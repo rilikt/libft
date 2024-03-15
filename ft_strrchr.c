@@ -34,23 +34,16 @@ char	*ft_strrchr(const char *str, int c)
 	char	*st;
 	int		i;
 
-	i = 0;
 	st = (char *)str;
 	ch = (char)c;
-	while (str[i])
-	{
-		i++;
-	}
+	i = ft_strlen(str);
 	while (i >= 0)
 	{
 		if (ch == st[i])
-			break ;
+			return (st + i);
 		i--;
-	}
-	if (ch == st[i])
-		return (st + i);
-	else
-		return (0);
+	}	
+	return (NULL);
 }
 
 // int main(void)

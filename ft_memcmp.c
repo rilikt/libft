@@ -15,20 +15,19 @@
 int	ft_memcmp(const void *buffer, const void *buffer2, size_t count)
 {
 	unsigned long int	i;
-	int					result;
 	unsigned char		*buf;
 	unsigned char		*buf2;
 
 	buf = (unsigned char *)buffer;
 	buf2 = (unsigned char *)buffer2;
 	i = 0;
-	result = 0;
 	while (count > i)
 	{
-		result = buf[i] - buf2[i];
+		if (buf[i] != buf2[i])
+			return (buf[i] - buf2[i]);
 		i++;
 	}
-	return (result);
+	return (0);
 }
 
 // int main() {

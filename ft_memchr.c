@@ -14,23 +14,17 @@
 
 void	*ft_memchr(const void *buf, int c, size_t count)
 {
-	const char			*buffer;
+	unsigned char			*buffer;
 	unsigned char		ch;
-	void				*re;
 	unsigned long int	i;
 
-	re = (void *)buf;
 	i = 0;
-	buffer = (const char *)buf;
+	buffer = (unsigned char *)buf;
 	ch = (unsigned char)c;
 	while (count > i)
 	{
 		if (buffer[i] == ch)
-		{
-			buf += i;
-			return (re + i);
-			break ;
-		}
+			return (buffer + i);
 		i++;
 	}
 	return (0);

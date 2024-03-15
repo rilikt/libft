@@ -17,25 +17,24 @@ size_t	ft_strlcat(char *dest, const char *source, size_t size)
 	unsigned long int	dest_len;
 	unsigned long int	source_len;
 	unsigned long int	i;
-	unsigned long int	max;
+	unsigned long int	re_val;
 
 	dest_len = 0;
 	source_len = 0;
 	i = 0;
-	while (dest_len < size && dest[dest_len])
-		dest_len++;
-	while (source_len < size && source[source_len])
-		source_len++;
-	max = size - dest_len;
-	if (max == 0)
-		return (dest_len + source_len);
-	while (source[i] && i < max - 1)
+	dest_len = ft_strlen(dest);
+	source_len = ft_strlen(source);
+	if (dest_len < size)
+		re_val = dest_len + source_len;
+	else
+		re_val = source_len + size;
+	while (source[i] && (dest_len + i) < size - 1)
 	{
 		dest[dest_len + i] = source[i];
 		i++;
 	}
 	dest[dest_len + i] = '\0';
-	return (dest_len + source_len);
+	return (re_val);
 }
 
 // if (size == 0)

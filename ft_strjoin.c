@@ -18,8 +18,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*str;
 
 	total_len = ft_strlen(s1) + ft_strlen(s2) +1;
-	printf("%d\n", total_len);
 	str = (char *)ft_calloc(total_len, sizeof(char));
+	if (str == NULL)
+		return (NULL);
 	ft_strlcat(str, s1, total_len);
 	ft_strlcat(str, s2, total_len);
 	return (str);
