@@ -12,68 +12,36 @@
 
 #include "libft.h"
 
-static int	set_front(char const *s1, char const *set)
+static int	check_char(char c, char const *set)
 {
-	int	i;
 	int	j;
 
-	i = 0;
 	j = 0;
 	while (set[j])
 	{
-		if (s1[i] == set[j])
-		{
-			i++;
-			j = 0;
-		}
-		else
-			j++;
+		if (c == set[j])
+			return (1);
+		j++;
 	}
-	return (i);
-}
-
-static int	ft_trim_len(char const *s1, char const *set)
-{
-	int	i;
-	int	j;
-	int	total;
-	int	len;
-
-	j = 0;
-	total = set_front(s1, set);
-	len = ft_strlen(s1);
-	i = len - 1;
-	while (set[j])
-	{
-		if (s1[i] == set[j])
-		{
-			i--;
-			j = 0;
-			total++;
-		}
-		else
-			j++;
-	}
-	len -= total;
-	return (len);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*trim;
-	int		front;
-	int		trim_len;
+	int i;
+	int j;
+	int len;
 
-	if (ft_strlen(set) > ft_strlen(s1))
-	{
-		trim = (char *)malloc(1 * sizeof(char));
-		trim[0] = '\0';
-		return (trim);
-	}
-	front = set_front(s1, set);
-	trim_len = ft_trim_len(s1, set);
-	trim = ft_substr(s1, front, trim_len);
-	return (trim);
+	i = 0;
+	j = 1;
+	len = ft_strlen(s1);
+	while (s1[i] && check_char(s1[i], set))
+		i++;
+	while (s1[len - j] && check_char(s1[len - j], set))
+		j++;
+	if (i == len)
+		return(ft_calloc(1, 1));
+	return (ft_substr(s1, i, len - i - j +1));
 }
 
 // int main(void)

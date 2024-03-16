@@ -16,8 +16,10 @@ static int	ft_count(char const *s, char c)
 {
 	int	i;
 	int	count;
+	int multi;
 
 	i = 0;
+	multi = 0;
 	count = 0;
 	while (s[i])
 	{
@@ -25,7 +27,14 @@ static int	ft_count(char const *s, char c)
 			count++;
 		i++;
 	}
-	return (count);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			multi = 1;
+		i++;
+	}
+	return (count * multi);
 }
 
 static int	word_len(char const *s, char c)
@@ -40,7 +49,14 @@ static int	word_len(char const *s, char c)
 	return (len);
 }
 
-static void	pop_arr(char **arr, char const *s, char c, int str_count)
+static void ft_free(char **arr, int i)
+{
+	while (i-- > 0)
+		free(arr[i]);
+	free(arr);
+}
+
+static int	pop_arr(char **arr, char const *s, char c, int str_count)
 {
 	int		len;
 	int		i;
@@ -53,10 +69,15 @@ static void	pop_arr(char **arr, char const *s, char c, int str_count)
 		while (s[j] == c)
 			j++;
 		len = word_len(s + j, c);
-		arr[i] = ft_substr(s, j, len);
+		if (!(arr[i] = ft_substr(s, j, len)))
+		{
+			ft_free(arr, i);
+			return (0);
+		}
 		j += len + 1;
 		i++;
 	}
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -69,26 +90,32 @@ char	**ft_split(char const *s, char c)
 	if (arr == NULL)
 		return (NULL);
 	arr[str_count] = NULL;
-	pop_arr(arr, s, c, str_count);
+	if (!pop_arr(arr, s, c, str_count))
+		return (NULL);
 	return (arr);
 }
 
-// int	main(void)
-// {
-// 	char *s = "split this string";
-// 	char c = 's';
-// 	char **split;
-// 	int n;
-// 	int i;
+int	main(void)
+{
+	// char *s = "split this string";
+	// char c = 's';
+	char **split;
+	int n;
+	int i;
 
-// 	split = ft_split(s, c);
-// 	n = ft_count(s,c);
-// 	i = 0;
-// 	while (i <= n)
-// 	{
-// 		printf("String %d: %s\n", i, split[i]);
-// 		free (split[i]);
-// 		i++;
-// 	}
-// 	free (split);
-// }
+	split = ft_split("xxxxxxxxhello!", 'x');
+	n = ft_count("xxxxxxxxhello!", 'x');
+	i = 0;
+	if (!split)
+	{
+		printf("epic fail\n");
+		return (0);
+	}
+	while (i <= n)
+	{
+		printf("String %d: %s\n", i, split[i]);
+		free (split[i]);
+		i++;
+	}
+	free (split);
+}
